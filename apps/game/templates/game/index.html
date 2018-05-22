@@ -5,14 +5,25 @@
     <title>Game</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'game/css/map.css' %}">
+    <link rel="stylesheet" href="{% static 'game/css/GUI.css' %}">
+
   </head>
   <body>
 
-    <div class="container">
-      <h3>Game</h3>
+    <div class="header">
+       <div class="text">
+         State Purchase
+       </div>
+    </div>
 
+    <div class="container">
       <div class="map">
         {{ map|safe }}
+        <img src="{% static 'game/img/map.png' %}" alt="">
+      </div>
+      <div class="info_panel">
+        <h3>Information</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis blanditiis quos eaque pariatur iure cumque, itaque iste eos eligendi quod, nisi rem beatae amet incidunt consequuntur ipsa eveniet. Illum deserunt numquam debitis! Aliquid quasi recusandae, aut quo maiores dignissimos libero!</p>
       </div>
     </div>
 

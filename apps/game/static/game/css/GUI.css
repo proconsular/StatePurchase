@@ -1,0 +1,28 @@
+
+body {
+  background: #222;
+}
+
+.header .text {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #eee;
+}
+
+.info_panel {
+  position: absolute;
+  bottom: 25px;
+  left: 25%;
+  width: 600px;
+  height: 100px;
+  background: #ccd;
+  padding: 12px;
+  border: 2px solid #222;
+}
+
+.info_panel h3 {
+  text-decoration: underline;
+}

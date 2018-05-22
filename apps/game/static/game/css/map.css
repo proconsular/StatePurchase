@@ -4,48 +4,288 @@
   margin: 0;
 }
 
-.map {
+.container {
   margin: auto;
 }
 
-.state {
+.map {
+  margin: auto;
+  width: 1000px;
   position: absolute;
-  //border: 1px solid black;
+  left: 200px;
 }
 
-.handle {
-  width: 50px;
-  height: 50px;
+.map img {
+  width: 100%;
+}
+
+.state {
+  width: 40px;
+  height: 40px;
   border: 3px solid #faa;
   position: fixed;
   margin-left: 50px;
   margin-top: 30px;
   border-radius: 50px;
+  background: #faa;
 }
 
-.handle:hover {
+.state:hover {
   border: 3px solid #59f;
 }
 
-.state img {
-  width: 150px;
-}
-
 .washington {
-  top: 100px;
-  left: 200px;
+  top: 55px;
+  left: 240px;
 }
 
 .idaho {
-  top: 100px;
-  left: 350px;
-}
-
-.idaho img {
-  width: 125px !important;
+  top: 160px;
+  left: 315px;
 }
 
 .oregon {
+  top: 140px;
+  left: 220px;
+}
+
+.california {
+  top: 300px;
+  left: 195px;
+}
+
+.nevada {
+  top: 250px;
+  left: 260px;
+}
+
+.montana {
+  top: 100px;
+  left: 410px;
+}
+
+.utah {
+  top: 270px;
+  left: 355px;
+}
+
+.wyoming {
+  top: 195px;
+  left: 435px;
+}
+
+.arizona {
+  top: 380px;
+  left: 340px;
+}
+
+.colorado {
+  top: 290px;
+  left: 465px;
+}
+
+.new_mexico {
+  top: 390px;
+  left: 450px;
+}
+
+.north_dakota {
+  top: 100px;
+  left: 565px;
+}
+
+.south_dakota {
+  top: 170px;
+  left: 565px;
+}
+
+.nebraska {
+  top: 235px;
+  left: 570px;
+}
+
+.kansas {
+  top: 305px;
+  left: 590px;
+}
+
+.oklahoma {
+  top: 375px;
+  left: 620px;
+}
+
+.texas {
+  top: 470px;
+  left: 580px;
+}
+
+.minnesota {
+  top: 130px;
+  left: 660px;
+}
+
+.iowa {
+  top: 225px;
+  left: 680px;
+}
+
+.missouri {
+  top: 310px;
+  left: 700px;
+}
+
+.arkansas {
+  top: 390px;
+  left: 710px;
+}
+
+.louisiana {
+  top: 470px;
+  left: 720px;
+}
+
+.wisconsin {
+  top: 160px;
+  left: 745px;
+}
+
+.illinois {
+  top: 265px;
+  left: 765px;
+}
+
+.tennessee {
+  top: 355px;
+  left: 825px;
+}
+
+.mississippi {
+  top: 430px;
+  left: 770px;
+}
+
+.michigan {
+  top: 180px;
+  left: 835px;
+}
+
+.indiana {
+  top: 260px;
+  left: 820px;
+}
+
+.kentucky {
+  top: 310px;
+  left: 850px;
+}
+
+.alabama {
+  top: 420px;
+  left: 830px;
+}
+
+.ohio {
+  top: 250px;
+  left: 880px;
+}
+
+.west_virginia {
+  top: 280px;
+  left: 920px;
+}
+
+.virginia {
+  top: 290px;
+  left: 970px;
+}
+
+.north_carolina {
+  top: 340px;
+  left: 970px;
+}
+
+.south_carolina {
+  top: 380px;
+  left: 940px;
+}
+
+.georgia {
+  top: 420px;
+  left: 900px;
+}
+
+.florida {
+  top: 500px;
+  left: 940px;
+}
+
+.new_york {
+  top: 150px;
+  left: 1000px;
+}
+
+.pennsylvania {
+  top: 212px;
+  left: 970px;
+}
+
+.vermont {
+  top: 130px;
+  left: 1045px;
+  width: 20px;
+  height: 20px;
+}
+
+.maine {
+  top: 80px;
+  left: 1080px;
+}
+
+.new_hampshire {
+  top: 140px;
+  left: 1070px;
+  width: 20px;
+  height: 20px;
+}
+
+.massachusetts {
+  top: 165px;
+  left: 1070px;
+  width: 15px;
+  height: 15px;
+}
+
+.connecticut {
+  top: 187px;
+  left: 1065px;
+  width: 12.5px;
+  height: 12.5px;
+}
+
+.rhode_island {
   top: 185px;
-  left: 200px;
+  left: 1087px;
+  width: 7.5px;
+  height: 7.5px;
+}
+
+.new_jersey {
+  top: 230px;
+  left: 1040px;
+  width: 15px;
+  height: 15px;
+}
+
+.delaware {
+  top: 265px;
+  left: 1025px;
+  width: 10px;
+  height: 10px;
+}
+
+.maryland {
+  top: 260px;
+  left: 1000px;
+  width: 15px;
+  height: 15px;
 }
