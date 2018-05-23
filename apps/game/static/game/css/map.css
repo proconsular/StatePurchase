@@ -9,10 +9,10 @@
 }
 
 .map {
-  margin: auto;
   width: 1000px;
   position: absolute;
   left: 200px;
+  top: 60px;
 }
 
 .map img {

@@ -1,0 +1,152 @@
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #222;
+}
+
+.turn-button {
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 0;
+  vertical-align: top;
+  width: 100px;
+  height: 20px;
+  background: #f33;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px;
+  font-size: 20px;
+}
+
+.game_control {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.map_button {
+  margin-right: 30px;
+  text-decoration: none;
+  width: 50px;
+  height: 17.5px;
+  background: #88f;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #eee;
+  color: white;
+  vertical-align: top;
+}
+
+.header {
+  background: #999;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.header .state_name {
+  display: inline-block;
+}
+
+.header .stats ul, .header .money ul {
+  list-style: none;
+  display:  inline-block;
+}
+
+.header .stats ul li, .header .money ul li {
+  display: inline-block;
+}
+
+.stats, .money {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.stats {
+  vertical-align: top;
+}
+
+.money {
+  float: right;
+}
+
+.header li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.state {
+  background: #aaa;
+  width: 900px;
+  height: 600px;
+  margin:auto;
+  margin-top: 40px;
+}
+
+.control_panel {
+  background: #111;
+  border: 1px solid #eee;
+  height: 150px;
+  width: 1050px;
+  position: absolute;
+  bottom: 0px;
+  left: 15%;
+}
+
+.control_panel ul {
+  list-style: none;
+  margin: auto;
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.control_panel ul li {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.control_panel a {
+  width: 200px;
+  height: 40px;
+  background: #f44;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 32px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.info_panel {
+  background: #eee;
+  width: 200px;
+  height: 500px;
+  position: absolute;
+  left: 20px;
+  top: 50px;
+  padding: 16px;
+}
+
+.activity_panel {
+  background: #eee;
+  width: 200px;
+  height: 500px;
+  position: absolute;
+  right: 20px;
+  top: 50px;
+  padding: 16px;
+}

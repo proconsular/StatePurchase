@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>State</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'game/css/state.css' %}">
+  </head>
+  <body>
+
+    <div class="header">
+      <a class="map_button" href="/">Map</a>
+      <div class="state_name">{{ state.name }}</div>
+      <div class="stats">
+        <ul>
+          <li>
+            Traffic: {{ state.stats.traffic }}
+          </li>
+          <li>
+            Crime: {{ state.stats.crime }}
+          </li>
+          <li>
+            Education: {{ state.stats.education }}
+          </li>
+          <li>
+            Population: {{ state.stats.population }}k
+          </li>
+        </ul>
+      </div>
+      <div class="money">
+        <ul>
+          <li>
+            Treasury: {{ state.stats.money|floatformat:1 }}m
+          </li>
+          <li>
+            Revenue: {{ revenue|floatformat:1 }}m
+          </li>
+          <li>
+            GDP: {{ GDP|floatformat:1 }}m
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="state">
+
+      </div>
+
+      <div class="control_panel">
+        <ul>
+          <li>
+            <a href="#">Upgrades</a>
+          </li>
+          <li>
+            <a href="#">Research</a>
+          </li>
+          <li>
+            <a href="#">Maintenance</a>
+          </li>
+          <li>
+            <a href="#">Strategy</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info_panel">
+        <h1>Selected Item</h1>
+        <div class="content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati provident culpa quis doloribus, a sapiente dicta alias cupiditate repudiandae! Eveniet labore ut aliquam nemo. A amet itaque ratione, facere nihil modi rerum libero vel asperiores, distinctio at tempora laborum culpa.
+        </div>
+      </div>
+
+      <div class="activity_panel">
+        <div class="content">
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="game_control">
+        <a class="turn-button" href="/turn">Next Turn</a>
+      </div>
+
+    </div>
+
+  </body>
+</html>
