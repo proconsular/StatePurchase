@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf.urls import url, include
 
 urlpatterns = [
+    path('', include('apps.game.urls')),
     url('', include('apps.game.urls')),
     url(r'', include('apps.game.urls')),
     url(r'', include('apps.log_reg.urls')),
