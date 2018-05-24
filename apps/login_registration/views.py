@@ -7,11 +7,11 @@ from django.db.models import Q
 def prompt(request):
 
     request.session.flush()
-    return render(request,'log_reg/login.html')
+    return render(request,'login_registration/login.html')
 
 def register(request):
 
-    return render(request,'log_reg/register.html')
+    return render(request,'login_registration/register.html')
 
 def create(request):
     result = User.objects.registration_verify(request.POST)
@@ -41,7 +41,7 @@ def home(request):
     #     context = {
     #     'curr_user' : User.objects.get(id = request.session['user_id']),
     # }
-    #     return render(request,'log_reg/success.html', context)
+    #     return render(request,'login_registration/success.html', context)
     # else:
         # RIGHT NOW THIS ONLY TAKES YOU BACK TO THE LOGIN PAGE, NOT REGISTER
     return redirect('/state_purchase')

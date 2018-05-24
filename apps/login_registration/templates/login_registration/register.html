@@ -12,14 +12,65 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
+</head>
+<body>
+
+    <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=1625529067545137&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+    <script>
+        window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '{your-app-id}',
+            cookie     : true,
+            xfbml      : true,
+            version    : '{latest-api-version}'
+        });
+            
+        FB.AppEvents.logPageView();   
+            
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+        {
+    status: 'connected',
+    authResponse: {
+        accessToken: '...',
+        expiresIn:'...',
+        signedRequest:'...',
+        userID:'...'
+    }
+}
+    </script>
+
     <style>
         .container-fluid{ padding: 2%; }
         button{ width: 50%; }
         ul { list-style-type: none; }
-        
     </style>
-</head>
-<body>
     <h1> welcome</h1>
     <h2><a href="/state_purchase">go back</a></h2>
         {% if messages %}
@@ -59,12 +110,15 @@
                     <button class="btn btn-primary btn-lg" type="submit">register</button>
                 
                     <div style ="margin-left:  70%; margin-top: -40%">
-                        <h2>fuck this button</h2>
+                        <h2>fuck all these buttons</h2>
                         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+                        <div class="fb-login-button" data-width="300" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+                        <fb:login-button 
+                            scope="public_profile,email"
+                            onlogin="checkLoginState();">
+                        </fb:login-button>
                     </div>
 
                 </div>
