@@ -32,13 +32,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.game',
+    'apps.log_reg',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login_registration',
+    # 'social_django'
+    # 'log_reg',
 ]
 
 MIDDLEWARE = [

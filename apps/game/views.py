@@ -8,3 +8,6 @@ def index(request):
         'map': map.render()
     }
     return render(request, 'game/index.html', context)
+
+
+# IGNORE THIS ------ JED
