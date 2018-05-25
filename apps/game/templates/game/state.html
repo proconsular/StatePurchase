@@ -17,9 +17,20 @@
 
       {% endfor %}
 
+      {% for building in state.companies.all %}
+
+      .company_{{ building.id }} {
+        left: {{ building.location.x }}px !important;
+        top: {{ building.location.y }}px !important;
+      }
+
+      {% endfor %}
+
     </style>
   </head>
   <body>
+    <div class="state_id hidden">{{ state.id }}</div>
+    <div class="crime_stat hidden">{{ crime }}</div>
 
     <div class="header">
       <a class="map_button" href="/">Map</a>
@@ -64,6 +75,7 @@
         </div>
       </div>
 
+      {% if user_owned %}
       <div class="control_panel">
         <ul class="menu_home">
           <li>
@@ -73,10 +85,10 @@
             <a href="#">Research</a>
           </li>
           <li>
-            <a href="#">Maintenance</a>
+            <a class="maintenance_menu_button" href="#">Maintenance</a>
           </li>
           <li>
-            <a href="#">Strategy</a>
+            <a class="strategy_menu_button" href="#">Strategy</a>
           </li>
         </ul>
         <ul class="menu_upgrades hidden">
@@ -126,6 +138,68 @@
             <a class="main_button" href="#">Main</a>
           </li>
         </ul>
+        <ul class="menu_maintenance hidden">
+          <li>
+            <a href="/modify/states/{{ state.id }}/clean/school">Cln Schls (5m)</a>
+          </li>
+          <li>
+            <a href="/modify/states/{{ state.id }}/clean/police">Cln Police (5m)</a>
+          </li>
+          <li>
+            <a href="/modify/states/{{ state.id }}/clean/road">Cln Roads (5m)</a>
+          </li>
+          <li>
+            <a class="main_button" href="#">Main</a>
+          </li>
+        </ul>
+        <div class="menu_strategy_sel hidden">
+          <ul>
+            <li>
+              <select class="target_state_sel">
+                {% for state in game.states.all %}
+                <option value="{{ state.id }}">{{ state.name }}</option>
+                {% endfor %}
+              </select>
+            </li>
+            <li>
+              <a class="target_button" href="#">Target</a>
+            </li>
+            <li>
+              <a class="main_button" href="#">Main</a>
+            </li>
+          </ul>
+        </div>
+        <ul class="menu_strategy hidden">
+          <li>
+            <a class="stragety_crime" href="">Bus Crime (5m)</a>
+          </li>
+          <li>
+            <a class="stragety_road" href="">Trash Rds (5m)</a>
+          </li>
+          <li>
+            <a class="stragety_pop" href="">Chrm Pop. (5m)</a>
+          </li>
+          <li>
+            <a class="main_button" href="#">Main</a>
+          </li>
+        </ul>
+      </div>
+      {% else %}
+      <div class="control_panel">
+        <ul>
+          <li>
+            <a href="">Buy State ({{ cost }}m)</a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="state-status">
+        <div class="crime-status">
+          <div class="rebellion hidden">Rebellion</div>
+          <div class="anarachy hidden">Total Anarchy</div>
+          <div class="collapse hidden">Collapsed</div>
+        </div>
       </div>
 
       <div class="info_panel">
@@ -138,9 +212,17 @@
       <div class="activity_panel">
         <div class="content">
           <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo.</li>
+            {% for effect in state.effects.all %}
+            <li>
+              {% if effect.type == "crime" %}
+                {% if effect.strength >= 0 %}
+                  There's an active Meth Lab in the region.
+                {% else %}
+                  There's noticeably less crime than usual.
+                {% endif %}
+              {% endif %}
+            </li>
+            {% endfor %}
           </ul>
         </div>
       </div>

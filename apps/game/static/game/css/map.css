@@ -22,16 +22,25 @@
 .state {
   width: 40px;
   height: 40px;
-  border: 3px solid #faa;
+  border: 3px solid #444;
   position: fixed;
   margin-left: 50px;
   margin-top: 30px;
   border-radius: 50px;
-  background: #faa;
+  background: #888;
 }
 
 .state:hover {
-  border: 3px solid #59f;
+  border: 3px solid #39f;
+}
+
+.enemy {
+  background: #f33;
+}
+
+.player {
+  background: #3f3;
+
 }
 
 .washington {

@@ -9,6 +9,7 @@ class GameData(models.Model):
 class AgentData(models.Model):
     name = models.CharField(max_length=255)
     game = models.ForeignKey(GameData, related_name="agents", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="agent", on_delete=models.CASCADE)
 
 class TechData(models.Model):
     schools = models.IntegerField(default=0)
@@ -39,6 +40,7 @@ class LocationData(models.Model):
 # status: 2, Healthy; 1, Rundown; 0, Abandoned
 # efficency: 2, Highly Efficent, 1: Efficent, 0: Inefficent
 # type: School, Police Station, Road, Company(_Basic, _Midlevel, _Tech)
+# cleanliness: 3, Clean; 2, Littered; 1: Dirty; 0: Vandalized
 # size: 1-10
 
 class BuildingData(models.Model):
@@ -46,5 +48,20 @@ class BuildingData(models.Model):
     efficency = models.IntegerField(default=0)
     type = models.CharField(max_length=255)
     size = models.IntegerField(default=1)
+    cleanliness = models.IntegerField(default=3)
     location = models.ForeignKey(LocationData, on_delete=models.CASCADE)
     state = models.ForeignKey(StateData, related_name="buildings", on_delete=models.CASCADE)
+
+class EffectData(models.Model):
+    type = models.CharField(max_length=255)
+    turns = models.IntegerField(default=2)
+    # strength: 1-10
+    strength = models.IntegerField(default=1)
+    state = models.ForeignKey(StateData, related_name="effects", on_delete=models.CASCADE)
+
+class CompanyData(models.Model):
+    tech = models.IntegerField(default=1)
+    efficency = models.IntegerField(default=0)
+    size = models.IntegerField(default=1)
+    location = models.ForeignKey(LocationData, on_delete=models.CASCADE)
+    state = models.ForeignKey(StateData, related_name="companies", on_delete=models.CASCADE)

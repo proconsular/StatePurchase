@@ -55,7 +55,7 @@ class Map:
     def createState(self, name):
         tech = TechData.objects.create()
         stats = StatData.objects.create(population=100, money=40)
-        agent = AgentData.objects.create(name=name, game_id=GameData.objects.first().id)
+        agent = AgentData.objects.create(name=name, game_id=GameData.objects.first().id, user_id=User.objects.get(username="dead").id)
         tech.save()
         stats.save()
         agent.save()
@@ -87,7 +87,11 @@ class Map:
 
     def renderState(self, state):
         name = self.replaceSpaces(state.name.lower())
-        return "<a href='/state/" + name + "'><div class='state " + name + "'></div></a>"
+        player = "enemy"
+        game = GameData.objects.first()
+        if state.agent.user.id == game.user.id:
+            player = "player"
+        return "<a href='/state/" + name + "'><div class='state " + name + " "+ player +"'></div></a>"
 
     def replaceSpaces(self, name):
         output = ""
