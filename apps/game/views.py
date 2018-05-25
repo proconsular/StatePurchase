@@ -6,12 +6,27 @@ from .State import State
 from .Roll import Roll
 from random import randint
 
+def index(request):
+    return render(request, 'game/login.html')
+
+def login(request):
+    user = None
+    users = User.objects.filter(username=request.POST['username'])
+    if len(users) == 0:
+        user = User.objects.create(username=request.POST['username'])
+        user.save()
+        request.session['user'] = user.id
+    else:
+        request.session['user'] = users[0].id
+    return redirect('/map')
+
+def logout(request):
+    del request.session
+    return redirect('/')
+
 def map(request):
     createDeadUser()
     map = startGame(request)
-    user = User.objects.filter(username='test')[0]
-    request.session['user'] = user.id
-    request.session['game'] = user.games.first().id
     context = {
         'map': map.render(),
     }
@@ -25,26 +40,30 @@ def createDeadUser():
 def startGame(request):
     user = None
     game = None
-    users = User.objects.filter(username="test")
-    if len(users) == 0:
-        user = User.objects.create(username="test")
-        user.save()
+    if 'user' not in request.session:
+        users = User.objects.filter(username="test")
+        if len(users) == 0:
+            user = User.objects.create(username="test")
+            user.save()
+        else:
+            user = users[0]
     else:
-        user = users[0]
+        user = User.objects.get(id=request.session['user'])
     games = GameData.objects.filter(user_id=user.id)
     if len(games) == 0:
         game = GameData.objects.create(user_id=user.id)
         game.save()
     else:
         game = games[0]
-    map = Map()
+    map = Map(game.id)
     states = StateData.objects.filter(game_id=game.id)
     if len(states) == 0:
         map.create()
-        WA = StateData.objects.get(name="Washington")
+        WA = game.states.get(name="Washington")
         WA.agent.user = User.objects.get(id=request.session['user'])
         WA.agent.save()
-
+    request.session['user'] = user.id
+    request.session['game'] = game.id
     return map
 
 def state(request, state_name):

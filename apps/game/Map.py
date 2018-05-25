@@ -2,6 +2,10 @@ from .models import *
 from random import randint
 
 class Map:
+
+    def __init__(self, game_id):
+        self.game_id = game_id
+
     def create(self):
         self.createState("Washington")
         self.createState("Oregon")
@@ -55,11 +59,11 @@ class Map:
     def createState(self, name):
         tech = TechData.objects.create()
         stats = StatData.objects.create(population=100, money=40)
-        agent = AgentData.objects.create(name=name, game_id=GameData.objects.first().id, user_id=User.objects.get(username="dead").id)
+        agent = AgentData.objects.create(name=name, game_id=self.game_id, user_id=User.objects.get(username="dead").id)
         tech.save()
         stats.save()
         agent.save()
-        state = StateData.objects.create(name=name, tech_id=tech.id, stats_id=stats.id, agent_id=agent.id, game_id=GameData.objects.first().id)
+        state = StateData.objects.create(name=name, tech_id=tech.id, stats_id=stats.id, agent_id=agent.id, game_id=self.game_id)
         state.save()
         self.createBuildings(state, "school")
         self.createBuildings(state, "police")
@@ -80,7 +84,7 @@ class Map:
 
     def render(self):
         output = ""
-        states = StateData.objects.filter(game_id=GameData.objects.first().id)
+        states = StateData.objects.filter(game_id=self.game_id)
         for state in states:
             output += self.renderState(state)
         return output
@@ -88,7 +92,7 @@ class Map:
     def renderState(self, state):
         name = self.replaceSpaces(state.name.lower())
         player = "enemy"
-        game = GameData.objects.first()
+        game = GameData.objects.get(id=self.game_id)
         if state.agent.user.id == game.user.id:
             player = "player"
         return "<a href='/state/" + name + "'><div class='state " + name + " "+ player +"'></div></a>"
